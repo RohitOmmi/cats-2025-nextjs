@@ -81,7 +81,7 @@ export default function DynamicSlider() {
                   {slide.video ? (
                     <iframe
                       width="100%"
-                      height="300"
+                      height="320"
                       src={slide.video}
                       frameBorder="0"
                       allowFullScreen
@@ -104,7 +104,7 @@ export default function DynamicSlider() {
       {/* FAQ Section */}
       <div className="row">
         <div className="col-12">
-          <div className="mt-[28px] justify-center mx-auto">
+          <div className="mt-[28px] justify-center mx-auto lg:max-w-screen-xl">
             <fieldset className={`mx-auto ${activeBgColor} px-5 border`}>
               <legend className="text-md bg-white">Frequently Asked Questions</legend>
               <div className="flex flex-row justify-evenly gap-4 px-[12px] py-[24px]">

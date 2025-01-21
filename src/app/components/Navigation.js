@@ -8,16 +8,16 @@ export default function Navigation() {
     <>
     <div className="mx-auto justify-center"></div>
         <Navbar fluid rounded>
-            <Navbar.Brand as={Link} href="#">
+            <Navbar.Brand as={Link} href="#"  className="px-auto lg:pl-[145px]">
               <Image src={logo} alt="Gitam_Logo" />
             </Navbar.Brand>
             <Navbar.Toggle />
-            <Navbar.Collapse>
-              <Navbar.Link href="#" active>
+            <Navbar.Collapse className="px-auto lg:pr-[145px]">
+              <Navbar.Link href="/" >
                 Home
               </Navbar.Link>
               <Navbar.Link href="/services">Services</Navbar.Link>
-              <Navbar.Link href="https://www.gitam.edu/">News</Navbar.Link>
+              <Navbar.Link href="/News">News</Navbar.Link>
               <Navbar.Link href="#">Events</Navbar.Link>
               <Navbar.Link href="#">Contact</Navbar.Link>
             </Navbar.Collapse>
