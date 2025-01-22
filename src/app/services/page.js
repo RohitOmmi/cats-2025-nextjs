@@ -25,7 +25,7 @@ const data = [
     id: 1,
     title: "Academic software",
     img: AcademicSoftware,
-    link: "/academicSoftware",
+    link: "/subCategory",
   },
   {
     id: 2,

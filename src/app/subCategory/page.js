@@ -22,7 +22,7 @@ const data = [
     id: 1,
     title: "G-Courses",
     img:Courses,
-    link: "#",
+    link: "/innerPage",
   },
   {
     id: 2,

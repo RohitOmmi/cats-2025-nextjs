@@ -177,7 +177,30 @@ export default function News() {
                 ))}
               </div>
             )}
-            {activeTab === "Dashboard" && <p>This is the Dashboard tab content.</p>}
+            {activeTab === "Dashboard" && 
+            (
+                <div>
+                  {newsContent.map((news, index) => (
+                    <div key={index} className="border-b pb-4 mb-4">
+                      <div className="flex justify-between items-center border-b pb-2">
+                        <h2 className="text-lg font-semibold">{news.title}</h2>
+                        <span className="text-gray-500">Date: {new Date().toLocaleDateString()}</span>
+                      </div>
+  
+                      <p className="mt-2 text-gray-700">
+                        {expandedIndex === index ? news.content : `${news.content.substring(0, 150)}...`}
+                      </p>
+  
+                      <button
+                        onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
+                        className="mt-2 text-blue-500 font-medium"
+                      >
+                        {expandedIndex === index ? "Read Less" : "Read More"}
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
           </div>
         </div>
       </div>

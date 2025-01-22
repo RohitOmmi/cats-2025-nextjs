@@ -13,13 +13,13 @@ export default function Navigation() {
             </Navbar.Brand>
             <Navbar.Toggle />
             <Navbar.Collapse className="px-auto lg:pr-[145px]">
-              <Navbar.Link href="/" >
+              <Navbar.Link href="/">
                 Home
               </Navbar.Link>
               <Navbar.Link href="/services">Services</Navbar.Link>
               <Navbar.Link href="/News">News</Navbar.Link>
-              <Navbar.Link href="#">Events</Navbar.Link>
-              <Navbar.Link href="#">Contact</Navbar.Link>
+              <Navbar.Link href="/Events">Events</Navbar.Link>
+              <Navbar.Link href="/Contact">Contact</Navbar.Link>
             </Navbar.Collapse>
         </Navbar>
     </>
