@@ -1,6 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* @font-face {
+  font-family: 'Forma DJR Display Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../font/djr/FormaDJRDisplay-Regular-Testing.woff') format('woff');
+}
+body {
+  font-family: 'Forma DJR Display Regular' ;
+} */
+
+h1,h2,h3,h4,h5,h6,p{
+  font-size:  17px;
+}
 /* Custom Scrollbar */
 .scroll-container::-webkit-scrollbar {
   width: 8px;

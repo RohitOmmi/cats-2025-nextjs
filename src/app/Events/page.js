@@ -4,9 +4,10 @@ import Navigation from "../components/Navigation";
 import { Breadcrumb, Pagination } from "flowbite-react";
 import Image from "next/image";
 import breadcrumbImg from "../../../public/assets/services/events_breadcrumb.png";
+import Footer from "../components/Footer";
 
 function Page() {
-  const [activeTab, setActiveTab] = useState("All Events"); // ✅ Keep it consistent
+  const [activeTab, setActiveTab] = useState("All Events"); 
   const [expandedIndex, setExpandedIndex] = useState(null); // Track expanded item index
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -71,7 +72,7 @@ function Page() {
             {tabs.map((tab) => (
               <button
                 key={tab.id}
-                onClick={() => setActiveTab(tab.title)} // ✅ Use title instead of id
+                onClick={() => setActiveTab(tab.title)} 
                 className={`px-4 py-2 rounded-md w-full text-left ${
                   activeTab === tab.title ? "bg-[#a58255] text-white" : "bg-gray-300"
                 }`}
@@ -83,7 +84,7 @@ function Page() {
 
           {/* Tab Content with Pagination */}
           <div className="w-3/4 p-4 border rounded-md">
-            {activeTab === "All Events" && ( // ✅ Corrected condition
+            {activeTab === "All Events" && ( 
               <div>
                 {paginatedNews.map((news, index) => (
                   <div key={index} className="border-b pb-4 mb-4">
@@ -117,6 +118,7 @@ function Page() {
           <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={onPageChange} />
         </div>
       </div>
+      <Footer/>
     </>
   );
 }
