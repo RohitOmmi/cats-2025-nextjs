@@ -8,6 +8,7 @@ import location from "../../../public/assets/images/location.png";
 import mail from "../../../public/assets/images/Mail.png";
 import clock from "../../../public/assets/images/Clock.png";
 import phone from "../../../public/assets/images/phone.png";
+import { PiStudent } from "react-icons/pi";
 
 function Page() {
   const [activeTab, setActiveTab] = useState(1); // Store tab as number

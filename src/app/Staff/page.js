@@ -7,8 +7,8 @@ import Image from "next/image";
 import breadcrumbImg from "../../../public/assets/services/services_breadcrumb.png";
 
 function page() {
-     const [activeTab, setActiveTab] = useState("All Events"); 
-      
+     const [activeTab, setActiveTab] = useState("G-SIS"); 
+     const [openAccordion, setOpenAccordion] = useState(null);
       
       const tabs=[
         {
@@ -106,7 +106,7 @@ function page() {
                     ))}
                   </div>
                 </div>
-              </div>
+        </div>
     </>
   )
 }

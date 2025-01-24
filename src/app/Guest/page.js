@@ -7,7 +7,7 @@ import Image from "next/image";
 import breadcrumbImg from "../../../public/assets/services/services_breadcrumb.png";
 
 function page() {
-     const [activeTab, setActiveTab] = useState("All Events"); 
+     const [activeTab, setActiveTab] = useState("G-SIS"); 
       
       
       const tabs=[
@@ -64,7 +64,7 @@ function page() {
                     <h1 className="text-[#a58255] text-lg"> Services</h1>
                     <Breadcrumb aria-label="Default breadcrumb example">
                         <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-                        <Breadcrumb.Item href="/Staff">Staff</Breadcrumb.Item>
+                        <Breadcrumb.Item href="/Guest">Guest</Breadcrumb.Item>
                     </Breadcrumb>
                     </div>
                     <div className="h-[180px]">
@@ -91,9 +91,9 @@ function page() {
                   </div>
         
                   {/* Tab Content */}
-                  <div className="w-3/4 p-4 border rounded-md">
+                  <div className="w-3/4 p-4  rounded-md">
                     {getTabContent().map((item) => (
-                      <div key={item.id} className="border-b pb-4 mb-4">
+                      <div key={item.id} className=" pb-4 mb-4">
                         <Accordion>
                           <Accordion.Panel>
                             <Accordion.Title>{item.title}</Accordion.Title>
@@ -106,7 +106,7 @@ function page() {
                     ))}
                   </div>
                 </div>
-              </div>
+        </div>
     </>
   )
 }

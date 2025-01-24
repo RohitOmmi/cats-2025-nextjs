@@ -4,7 +4,9 @@ import Lines from "../../../public/assets/images/slider-Lines.png"; // Ensure th
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useState } from "react";
-
+import { PiStudent } from "react-icons/pi";
+import { BsFillPersonVcardFill } from "react-icons/bs";
+import { HiMiniBellAlert } from "react-icons/hi2";
 const slides = [
   {
     id: 1,
@@ -41,10 +43,10 @@ const slides = [
 ];
 
 const faq = [
-  { id: 1, title: "Student", link: "/Students" },
-  { id: 2, title: "Staff", link: "/Staff" },
-  { id: 3, title: "Guest", link: "#" },
-  { id: 4, title: "Bell the CATS", link: "#" },
+  { id: 1, title: "Student", link: "/Students",icon:<PiStudent /> },
+  { id: 2, title: "Staff", link: "/Staff",icon:<BsFillPersonVcardFill /> },
+  { id: 3, title: "Guest", link: "/Guest",icon:<BsFillPersonVcardFill />  },
+  { id: 4, title: "Bell the CATS", link: "/BellTheCATS",icon:<HiMiniBellAlert /> },
 ];
 
 export default function DynamicSlider() {
@@ -120,25 +122,22 @@ export default function DynamicSlider() {
       </section>
 
       {/* FAQ Section */}
-      <div className="row">
-        <div className="col-12">
-          <div className="mt-[28px] justify-center mx-auto lg:max-w-screen-xl">
-            <fieldset className={`mx-auto ${activeBgColor} px-5 border`}>
-              <legend className="text-md bg-white p-2 border">
-                Frequently Asked Questions
-              </legend>
-              <div className="flex flex-row justify-evenly gap-4 px-[12px] py-[24px]">
-                {faq.map((item) => (
-                  <a href={item.link} key={item.id} >
-                    <div className="px-[24px] py-[12px] w-[240px] bg-white text-black text-center">
-                      {item.title}
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </fieldset>
+      <div className="mt-3 md:mt-5 flex justify-center mx-auto lg:max-w-screen-xl ">
+        <fieldset className={`w-full mx-auto ${activeBgColor} p-5 `}>
+          <legend className="text-sm bg-white p-1 border ">
+            Frequently Asked Questions
+          </legend>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-2 py-3">
+            {faq.map((item) => (
+              <a href={item.link} key={item.id} className="block">
+                <div className="flex items-center bg-white p-3  shadow-md hover:shadow-lg transition w-full">
+                  {item.icon}
+                  <span className="ml-2">{item.title}</span>
+                </div>
+              </a>
+            ))}
           </div>
-        </div>
+        </fieldset>
       </div>
     </>
   );
