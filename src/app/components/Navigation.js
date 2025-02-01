@@ -1,9 +1,28 @@
 import { Navbar } from "flowbite-react";
 import Image from "next/image";
 import Link from "next/link";
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import logo from "../../../public/assets/images/G-logo.png"
 export default function Navigation() {
+  // const [search,setSearch]=useState("");
+  // const data=[
+  //   {name:"G-Course",link:"innerPage"},
+  //   {name:"G-Learn",link:"innerPage"},
+  //   {name:"G-Exams",link:"innerPage"},
+  //   {name:"G-Coding",link:"innerPage"},
+  // ]
+  // const [filter,setFilter]=useState("")
+  // console.log(filter)
+  // useEffect(() => {
+  //   if (search=== "") { 
+  //     setFilter([]);
+  //     return;
+  //   }
+  //   const results = data.filter((item) =>
+  //     item.name.toLowerCase().includes(search.toLowerCase())
+  //   );
+  //   setFilter(results);
+  // }, [search]);
   return (
     <>
     <div className="mx-auto justify-center"></div>
@@ -11,6 +30,40 @@ export default function Navigation() {
             <Navbar.Brand as={Link} href="#"  className="px-auto lg:pl-[145px]">
               <Image src={logo} alt="Gitam_Logo" />
             </Navbar.Brand>
+            {/* <input type="text" value={search} onChange={(e)=>setSearch(e.target.value)}/>
+
+            {filter.length > 0 && (
+          <ul
+            style={{
+              display: "block",
+              zIndex: 1000,
+              position: "absolute",
+              top: 50,
+              right: 50,
+              left: 50,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {filter.map((item, index) => (
+              <li
+                key={index}
+                style={{
+                  border: "1px solid black",
+                  borderRadius: "5px",
+                  margin: 3,
+                }}
+                className="p-2 hover:bg-gray-200 cursor-pointer"
+                onClick={() => setSearch(item.name)} 
+              >
+               
+               <Navbar.Link href={`/${item.link}`}>
+                  {item.name}
+                </Navbar.Link>
+              </li>
+            ))}
+          </ul>
+        )} */}
             <Navbar.Toggle />
             <Navbar.Collapse className="px-auto lg:pr-[145px]">
               <Navbar.Link href="/">
