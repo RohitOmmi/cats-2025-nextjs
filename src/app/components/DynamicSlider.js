@@ -7,6 +7,8 @@ import { useState } from "react";
 import { PiStudent } from "react-icons/pi";
 import { BsFillPersonVcardFill } from "react-icons/bs";
 import { HiMiniBellAlert } from "react-icons/hi2";
+import { LuMessageCircleQuestion } from "react-icons/lu";
+
 const slides = [
   {
     id: 1,
@@ -43,10 +45,15 @@ const slides = [
 ];
 
 const faq = [
-  { id: 1, title: "Student", link: "/Students",icon:<PiStudent /> },
-  { id: 2, title: "Staff", link: "/Staff",icon:<BsFillPersonVcardFill /> },
-  { id: 3, title: "Guest", link: "/Guest",icon:<BsFillPersonVcardFill />  },
-  { id: 4, title: "Bell the CATS", link: "/BellTheCATS",icon:<HiMiniBellAlert /> },
+  { id: 1, title: "Student", link: "/Students", icon: <PiStudent /> },
+  { id: 2, title: "Staff", link: "/Staff", icon: <BsFillPersonVcardFill /> },
+  { id: 3, title: "Guest", link: "/Guest", icon: <BsFillPersonVcardFill /> },
+  {
+    id: 4,
+    title: "Bell the CATS",
+    link: "/BellTheCATS",
+    icon: <LuMessageCircleQuestion />,
+  },
 ];
 
 export default function DynamicSlider() {
@@ -74,47 +81,50 @@ export default function DynamicSlider() {
             showThumbs={false}
             showStatus={false}
             onChange={handleSlideChange}
-            
           >
             {slides.map((slide) => (
-              <div>
-                <fieldset
-                  key={slide.id}
-                  className={`p-8 ${slide.bgColor} text-white`}
-                >
-                  <legend className="text-md bg-white text-black p-2 border text-left">Commemorate - today</legend>
-                  <div className="flex flex-col lg:flex-row items-center">
-                    <div className="lg:w-1/2 p-6">
-                      <h2 className="text-3xl font-bold">{slide.title}</h2>
-                      <p className="mt-2">{slide.description}</p>
-                      <a
-                        href={slide.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-4 inline-block bg-white text-black px-4 py-2 rounded shadow"
-                      >
-                        Read More
-                      </a>
+              <div className="flex justify-center w-full">
+                <div className="w-full lg:max-w-screen-xl">
+                  <fieldset
+                    key={slide.id}
+                    className={`p-8 ${slide.bgColor} text-white`}
+                  >
+                    <legend className="font-inter text-md bg-white text-black p-2 border text-left">
+                      Commemorate - today
+                    </legend>
+                    <div className="flex flex-col lg:flex-row items-center w-full font-inter">
+                      <div className="lg:w-1/2 w-full p-6 text-left">
+                        <h2 className="text-3xl font-bold ">{slide.title}</h2>
+                        <p className="mt-2">{slide.description}</p>
+                        <a
+                          href={slide.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="mt-4 inline-block bg-white text-black px-4 py-2 rounded shadow"
+                        >
+                          Read More
+                        </a>
+                      </div>
+                      <div className="lg:w-1/2 w-full">
+                        {slide.video ? (
+                          <iframe
+                            width="100%"
+                            height="320"
+                            src={slide.video}
+                            frameBorder="0"
+                            allowFullScreen
+                          ></iframe>
+                        ) : (
+                          <img
+                            src={slide.image}
+                            alt={slide.title}
+                            className="rounded-lg shadow-lg w-full h-[360px] object-contain"
+                          />
+                        )}
+                      </div>
                     </div>
-                    <div className="lg:w-1/2">
-                      {slide.video ? (
-                        <iframe
-                          width="100%"
-                          height="320"
-                          src={slide.video}
-                          frameBorder="0"
-                          allowFullScreen
-                        ></iframe>
-                      ) : (
-                        <img
-                          src={slide.image}
-                          alt={slide.title}
-                          className="rounded-lg shadow-lg h-[360px]"
-                        />
-                      )}
-                    </div>
-                  </div>
-                </fieldset>
+                  </fieldset>
+                </div>
               </div>
             ))}
           </Carousel>
@@ -122,17 +132,17 @@ export default function DynamicSlider() {
       </section>
 
       {/* FAQ Section */}
-      <div className="mt-3 md:mt-5 flex justify-center mx-auto lg:max-w-screen-xl ">
+      <div className="mt-3 md:mt-5 flex justify-center mx-auto lg:max-w-screen-xl font-inter ">
         <fieldset className={`w-full mx-auto ${activeBgColor} p-5 `}>
-          <legend className="text-sm bg-white p-1 border ">
+          {/* <legend className="text-sm bg-white p-1 border font-inter">
             Frequently Asked Questions
-          </legend>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-2 py-3">
+          </legend> */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 px-2 py-3 text-[#A18454]">
             {faq.map((item) => (
               <a href={item.link} key={item.id} className="block">
-                <div className="flex items-center bg-white p-3  shadow-md hover:shadow-lg transition w-full">
-                  {item.icon}
-                  <span className="ml-2">{item.title}</span>
+                <div className="flex items-center bg-white p-3  shadow-md hover:shadow-lg transition w-full ">
+                  <span className="text-2xl">{item.icon}</span>
+                  <span className="ml-2 font-[500]">{item.title}</span>
                 </div>
               </a>
             ))}

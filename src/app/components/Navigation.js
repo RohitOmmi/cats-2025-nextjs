@@ -1,8 +1,8 @@
 import { Navbar } from "flowbite-react";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from 'react'
-import logo from "../../../public/assets/images/G-logo.png"
+import React, { useEffect, useState } from "react";
+import logo from "../../../public/assets/images/G-logo.png";
 export default function Navigation() {
   // const [search,setSearch]=useState("");
   // const data=[
@@ -14,7 +14,7 @@ export default function Navigation() {
   // const [filter,setFilter]=useState("")
   // console.log(filter)
   // useEffect(() => {
-  //   if (search=== "") { 
+  //   if (search=== "") {
   //     setFilter([]);
   //     return;
   //   }
@@ -25,12 +25,12 @@ export default function Navigation() {
   // }, [search]);
   return (
     <>
-    <div className="mx-auto justify-center"></div>
-        <Navbar fluid rounded>
-            <Navbar.Brand as={Link} href="#"  className="px-auto lg:pl-[145px]">
-              <Image src={logo} alt="Gitam_Logo" />
-            </Navbar.Brand>
-            {/* <input type="text" value={search} onChange={(e)=>setSearch(e.target.value)}/>
+      <div className="mx-auto justify-center"></div>
+      <Navbar fluid rounded>
+        <Navbar.Brand as={Link} href="/" className="px-auto lg:pl-[145px]">
+          <Image src={logo} alt="Gitam_Logo" />
+        </Navbar.Brand>
+        {/* <input type="text" value={search} onChange={(e)=>setSearch(e.target.value)}/>
 
             {filter.length > 0 && (
           <ul
@@ -64,18 +64,25 @@ export default function Navigation() {
             ))}
           </ul>
         )} */}
-            <Navbar.Toggle />
-            <Navbar.Collapse className="px-auto lg:pr-[145px]">
-              <Navbar.Link href="/">
-                Home
-              </Navbar.Link>
-              <Navbar.Link href="/services">Services</Navbar.Link>
-              <Navbar.Link href="/News">News</Navbar.Link>
-              <Navbar.Link href="/Events">Events</Navbar.Link>
-              <Navbar.Link href="/Contact">Contact</Navbar.Link>
-            </Navbar.Collapse>
-        </Navbar>
+        <Navbar.Toggle />
+        <Navbar.Collapse className="px-auto lg:pr-[145px] font-inter">
+          <Navbar.Link href="/" className="font-inter  text-base">
+            Home
+          </Navbar.Link>
+          <Navbar.Link href="/services" className="font-inter text-base">
+            Services
+          </Navbar.Link>
+          <Navbar.Link href="/News" className="font-inter text-base">
+            News
+          </Navbar.Link>
+          <Navbar.Link href="/Events" className="font-inter text-base">
+            Events
+          </Navbar.Link>
+          <Navbar.Link href="/Contact" className="font-inter text-base">
+            Contact
+          </Navbar.Link>
+        </Navbar.Collapse>
+      </Navbar>
     </>
-  )
+  );
 }
-

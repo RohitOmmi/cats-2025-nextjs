@@ -1,163 +1,166 @@
 "use client";
-import React from 'react'
-import { useState } from "react";
+import React, { useState } from "react";
 import Navigation from "../components/Navigation";
 import { Breadcrumb } from "flowbite-react";
 import Image from "next/image";
 import breadcrumbImg from "../../../public/assets/services/news_breadcrumb.png";
-import Footer from '../components/Footer';
-function page() {
-    const [activeTab, setActiveTab] = useState("About");
-      const [expandedIndex, setExpandedIndex] = useState(null); // Track expanded item index
-    
+import Footer from "../components/Footer";
+import { MdKeyboardArrowRight } from "react-icons/md";
 
-      const tabs = [
-        { id: "About", title: "About" },
-        { id: "Often asked", title: "Often asked" },
-        { id: "Request for service", title: "Request for service" },
-      ];
+function Page() {
+  const [activeTab, setActiveTab] = useState("About");
+  const [expandedIndex, setExpandedIndex] = useState(null);
 
-        const newsContent = [
-        {
-          title: "About G-courses",
-          content:"G-Courses is a centralized platform designed to streamline and manage the academic lifecycle of courses offered across various programs. It serves as the backbone of academic administration, ensuring detailed, accurate, and accessible course data for smooth functioning.",
-        },]
-        const newsContent1=[
-        {
-          title: "Often asked",
-          content:
-            "Our university has launched a new research program to encourage students and faculty members to participate in innovative projects. This initiative aims to bridge the gap between academic learning and real-world applications.",
-        },]
-        const newsContent2=[
-        {
-          title: "Campus Development Update",
-          content:
-            "We are thrilled to announce the construction of a new state-of-the-art library and research center. This facility will be equipped with modern technology, collaborative spaces, and an extensive digital archive.",
-        },
-      ];
+  const tabs = [
+    { id: "About", title: "About" },
+    { id: "Often asked", title: "Often asked" },
+    { id: "Request for service", title: "Request for service" },
+  ];
+
+  const contentData = {
+    About: {
+      title: `<h1 class="text-[#007367] font-[500] text-2xl mb-4">About</h1>`,
+      content: `<h2 class="text-[#212529] my-10 text-base font-[500] ">G-Courses is a centralized platform designed to streamline and manage the academic lifecycle of courses offered across various programs. It serves as the backbone of academic administration, ensuring detailed, accurate, and accessible course data for smooth functioning.</h2>
+     
+      <h3 class="text-[#212529] my-4 text-base font-[600] ">1. Centralized Database of Courses</h3>
+      <ul class="text-[#212529] my-2 text-base font-[500] list-disc pl-6">
+        <li>New types of regulation will be added according to the course types, grades, pass grades, etc.</li>
+        <li>Repository for all courses across programs and academic years.</li>
+        <li>Stores key attributes like course codes, titles, credits, marks, pass criteria, and types (core, elective, etc.).</li>
+        <li>Groups courses by program, semester, and specialization for easier access and management.</li>
+      </ul>
+      <h3  class="text-[#212529] my-4 text-base font-[600] ">2. Course Attributes</h3>
+      <ul  class="text-[#212529] my-2 text-base font-[500] list-disc pl-6">
+        <li>Course Code: A special number assigned to every course.</li>
+        <li>Course Title: The course's name for convenience.</li>
+        <li>Type of course: Fits program criteria, such as project-based, lab, or theory.</li>
+        <li>Credits: Shows how important the course is to the overall framework of the program.</li>
+        <li>Course category: Includes Core, Elective, Open Elective (OE), Minor (MI), and Mandatory Basket (MB) classifications.</li>
+        <li>Prerequisites/Co-requisites: Describes any courses or prior knowledge needed.</li>
+        <li>Distribution of Marks: A breakdown of grades for exams, practicals, and internal assessments.</li>
+        <li>Pass Marks: The minimum amount of marks needed to pass.</li>
+      </ul>
+      <h3  class="text-[#212529] my-4 text-base font-[600] ">3. Courses Mapping to the Program</h3>
+      <ul  class="text-[#212529] my-2 text-base font-[500] list-disc pl-6">
+        <li>Links courses with specific specializations, semesters, and programs.</li>
+        <li>Defines the structure of the program, including credit requirements, electives, baskets, and core courses.</li>
+      </ul>
+      <h3  class="text-[#212529] my-4 text-base font-[600] ">4. Course Offerings</h3>
+                <ul  class="text-[#212529] my-2 text-base font-[500] list-disc pl-6">
+        <li>Links courses with specific specializations, semesters, and programs.</li>
+        <li>Defines the structure of the program, including credit requirements, electives, baskets, and core courses.</li>
+      </ul> `,
+    },
+    "Often asked": {
+      title: `<h1 class="text-[#007367] font-[500] text-2xl mb-4">Often asked</h1>`,
+      content: `<ul class="text-[#212529] my-2 text-base font-[500] list-disc pl-6">
+      <li>Broadcast services cater to requirements of communications conducted in bulk to reach a larger number of recipients.</li>
+      <li>The broadcasts are typically sent by email but can also be sent via SMS, desktop notifications, digital signages, MyGITAM pop-ups, and in-class projector notifications.</li>
+      <li>Broadcast services are available to senior leadership teams who wish to send communications to a campus, institute (and its constituent schools), or all campuses.</li>
+      </ul> `,
+    },
+    "Request for service": {
+      title: `<h1 class="text-[#007367] font-[500] text-2xl mb-4">Request for service</h1>`,
+      content: `<ul class="text-[#212529] my-2 text-base font-[500] list-disc pl-6">
+      <li>Broadcast services cater to requirements of communications conducted in bulk to reach a larger number of recipients.</li>
+      <li>The broadcasts are typically sent by email but can also be sent via SMS, desktop notifications, digital signages, MyGITAM pop-ups, and in-class projector notifications.</li>
+      <li>Broadcast services are available to senior leadership teams who wish to send communications to a campus, institute (and its constituent schools), or all campuses.</li>
+      </ul> `,
+    },
+  };
+
   return (
-
-    // <div>inner page</div>
     <>
-          <Navigation />
-          {/* Breadcrumb */}
-          <div className="w-full bg-[#f4e4c9] px-4">
-            <div className="container max-w-screen-xl mx-auto flex flex-wrap items-center justify-between">
-              <div className="flex flex-col">
-                <h1 className="text-[#a58255] text-lg">Services</h1>
-                <Breadcrumb aria-label="Default breadcrumb example">
-                  <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
-                  <Breadcrumb.Item href="/services">service</Breadcrumb.Item>
-                  <Breadcrumb.Item href="/subCategory">Academic software</Breadcrumb.Item>
-                  <Breadcrumb.Item href="/innerPage">G-Courses</Breadcrumb.Item>
-                </Breadcrumb>
-              </div>
-              <div className="h-[180px]">
-                <Image src={breadcrumbImg} alt="service_Img" className="h-max w-full object-contain" />
-              </div>
-            </div>
-          </div>
-          {/* End of Breadcrumb */}
-    
-          {/* Vertical Tabs Section */}
-          <div className="lg:max-w-screen-xl mx-auto">
-            <div className="p-4 flex gap-4">
-              {/* Sidebar for Tabs */}
-              <div className="w-1/4 flex flex-col space-y-2">
-                {tabs.map((tab) => (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveTab(tab.id)}
-                    className={`px-4 py-2 rounded-md w-full text-left ${
-                      activeTab === tab.id ? "bg-[#a58255] text-white" : "bg-gray-300"
-                    }`}
-                  >
-                    {tab.title}
-                  </button>
-                ))}
-              </div>
-    
-              {/* Tab Content */}
-              <div className="w-3/4 p-4 border rounded-md">
-                {activeTab === "About" && (
-                  <div>
-                    {newsContent.map((news, index) => (
-                      <div key={index} className="border-b pb-4 mb-4">
-                        <div className="flex justify-between items-center border-b pb-2">
-                          <h2 className="text-lg font-semibold">{news.title}</h2>
-                          {/* <span className="text-gray-500">Date: {new Date().toLocaleDateString()}</span> */}
-                        </div>
-    
-                        <p className="mt-2 text-gray-700">
-                          {expandedIndex === index ? news.content : `${news.content.substring(0, 150)}...`}
-                        </p>
-    
-                        <button
-                          onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
-                          className="mt-2 text-blue-500 font-medium"
-                        >
-                          {expandedIndex === index ? "Read Less" : "Read More"}
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-                )}
-                {activeTab === "Often asked" && 
-                (
-                    <div>
-                      {newsContent1.map((news, index) => (
-                        <div key={index} className="border-b pb-4 mb-4">
-                          <div className="flex justify-between items-center border-b pb-2">
-                            <h2 className="text-lg font-semibold">{news.title}</h2>
-                            {/* <span className="text-gray-500">Date: {new Date().toLocaleDateString()}</span> */}
-                          </div>
-      
-                          <p className="mt-2 text-gray-700">
-                            {expandedIndex === index ? news.content : `${news.content.substring(0, 150)}...`}
-                          </p>
-      
-                          <button
-                            onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
-                            className="mt-2 text-blue-500 font-medium"
-                          >
-                            {expandedIndex === index ? "Read Less" : "Read More"}
-                          </button>
-                        </div>
-                      ))}
-                    </div>
-                  )}
+      <Navigation />
 
-                {activeTab === "Request for service" && 
-                (
-                    <div>
-                      {newsContent2.map((news, index) => (
-                        <div key={index} className="border-b pb-4 mb-4">
-                          <div className="flex justify-between items-center border-b pb-2">
-                            <h2 className="text-lg font-semibold">{news.title}</h2>
-                            <span className="text-gray-500">Date: {new Date().toLocaleDateString()}</span>
-                          </div>
-      
-                          <p className="mt-2 text-gray-700">
-                            {expandedIndex === index ? news.content : `${news.content.substring(0, 150)}...`}
-                          </p>
-      
-                          <button
-                            onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
-                            className="mt-2 text-blue-500 font-medium"
-                          >
-                            {expandedIndex === index ? "Read Less" : "Read More"}
-                          </button>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-              </div>
-            </div>
+      <div className="w-full bg-[#f4e4c9] px-4 py-2 font-inter">
+        <div className="container max-w-screen-xl mx-auto flex flex-wrap items-center justify-between">
+          <div className="flex flex-col">
+            <h1 className="text-[#a58255] text-3xl font-medium my-4">
+              G-Courses
+            </h1>
+            <Breadcrumb aria-label="Default breadcrumb example">
+              <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
+              <Breadcrumb.Item href="/services">Services</Breadcrumb.Item>
+              <Breadcrumb.Item href="/subCategory">
+                Academic software
+              </Breadcrumb.Item>
+              <Breadcrumb.Item href="/innerPage">G-Courses</Breadcrumb.Item>
+            </Breadcrumb>
+          </div>
+          <div className="h-[100px]">
+            <Image
+              src={breadcrumbImg}
+              alt="service_Img"
+              className="h-full w-full object-contain"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="lg:max-w-screen-xl mx-auto font-inter pt-10 ">
+        <div className="flex gap-20">
+          <div className="w-1/4 flex flex-col space-y-2">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`px-4 py-2 w-full text-left flex justify-between items-center border  ${
+                  activeTab === tab.id
+                    ? "bg-[#a58255] text-white border-[#a58255]"
+                    : "bg-white border-gray-300"
+                }`}
+              >
+                {tab.title}
+                <span className="text-xl">
+                  <MdKeyboardArrowRight />
+                </span>
+              </button>
+            ))}
           </div>
 
-         
-        </>
-  )
+          <div className="w-3/4 font-inter h-[60vh] overflow-auto scrollbar-thin scrollbar-hidden hover:scrollbar-show">
+            {contentData[activeTab] && (
+              <>
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: contentData[activeTab].title,
+                  }}
+                />
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: contentData[activeTab].content,
+                  }}
+                />
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <style jsx>{`
+        /* Hide scrollbar by default */
+        .scrollbar-hidden::-webkit-scrollbar {
+          width: 0px;
+        }
+
+        /* Show scrollbar on hover */
+        .hover\:scrollbar-show:hover::-webkit-scrollbar {
+          width: 7px;
+        }
+
+        .hover\:scrollbar-show:hover::-webkit-scrollbar-track {
+          background: #fff;
+          border-radius: 10px;
+        }
+
+        .hover\:scrollbar-show:hover::-webkit-scrollbar-thumb {
+          background: gray;
+          border-radius: 13px;
+        }
+      `}</style>
+    </>
+  );
 }
 
-export default page
+export default Page;

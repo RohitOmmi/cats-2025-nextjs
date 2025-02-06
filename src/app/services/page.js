@@ -16,9 +16,10 @@ import Research from "../../../public/assets/services/researchServices.png";
 import Communication from "../../../public/assets/services/communicationservices.png";
 import breadcrumbImg from "../../../public/assets/services/services_breadcrumb.png";
 import Navigation from "../components/Navigation";
-import Footer from "../../../src/app/components/Footer"
+import Footer from "../../../src/app/components/Footer";
 import { Breadcrumb } from "flowbite-react";
 import { HiHome } from "react-icons/hi";
+import ServiceCard from "../components/serviceCard";
 
 const data = [
   {
@@ -97,48 +98,43 @@ const data = [
 
 export default function Services() {
   return (
-    <>
+    <div className="min-h-[100vh]">
       <Navigation />
+
       {/* Breadcrumb */}
-      {/* Breadcrumb */}
-      <div className="w-full bg-[#f4e4c9] px-4 py-2">
+      <div className="w-full bg-[#f4e4c9] px-4 py-2 font-inter">
         <div className="container max-w-screen-xl mx-auto flex flex-wrap items-center justify-between">
-          <div className="flex flex-col">
-            <h1 className="text-[#a58255] text-lg"> Services</h1>
+          <div className="flex flex-col justify-between  ">
+            <h1 className="text-[#a58255] text-3xl font-medium my-4">
+              {" "}
+              Services
+            </h1>
             <Breadcrumb aria-label="Default breadcrumb example">
               <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
               <Breadcrumb.Item href="/services">Services</Breadcrumb.Item>
             </Breadcrumb>
           </div>
-          <div className="h-[180px]">
-            <Image src={breadcrumbImg} alt="service_Img" className="h-max w-full object-contain" />
+          <div className="h-[100px]">
+            <Image
+              src={breadcrumbImg}
+              alt="service_Img"
+              className="h-full w-full object-contain"
+            />
           </div>
         </div>
       </div>
       {/* end of bread crumb */}
-      {/* card */}
-      <div className="lg:max-w-screen-xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-[24px] mx-auto">
+      {/* cards view */}
+      <div className="h-full lg:max-w-screen-xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-[24px] mx-auto font-inter">
         {data.map((item) => (
-          <a href={item.link || "#"} key={item.id} className="block">
-            <Card className=" bg-[#f4e4c9]  border-[#a58255] d-block">
-              <div className="h-[100px] flex justify-center items-center">
-                <Image
-                  src={item.img}
-                  alt={item.title}
-                  width={100} // Adjust width as needed
-                  height={100} // Adjust height as needed
-                  className="object-contain"
-                />
-              </div>
-              <h6 className="font-normal text-gray-700 dark:text-gray-400 text-center">
-                {item.title}
-              </h6>
-            </Card>
-          </a>
+          <div key={item.id}>
+            <ServiceCard itemData={item} />
+          </div>
         ))}
       </div>
       {/* endof card */}
-      <Footer/>
-    </>
+
+      <Footer />
+    </div>
   );
 }
